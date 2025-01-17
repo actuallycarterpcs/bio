@@ -7,6 +7,31 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+        .profile-bio {
+            color: white;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #ffffff, 0 0 60px #ffffff;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid white;
+            width: 0;
+            animation: typing 4s steps(30, end), blink-caret 0.5s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+    </style>
 </head>
 <body> 
     <div class="background-container">
@@ -41,6 +66,9 @@
                 </div>
             </div>
         </div>
+        <div class="profile-bio" id="profileBio">
+            refer to my discord to contact
+        </div>
         
         <ul class="profile-links">
             <li>
@@ -51,17 +79,27 @@
             </li>
             <li>
                 <a href="https://www.roblox.com/users/5040205276/profile" target="_blank" title="Roblox"><i class="fa-solid fa-dice-one"></i></a>
-                <li>
-                    <a href="https://moonzy.pages.dev" target="_blank" title="phans.bio">
-                        <img src="asset/img/badge/phans.png" alt="Phans.bio" width="40" height="40">
-                    </a>
-                </li>
-                
+            </li>
+            <li>
+                <a href="https://phans.bio/1" target="_blank" title="phans.bio">
+                    <img src="asset/img/badge/phans.png" alt="Phans.bio" width="40" height="40">
+                </a>
+            </li>
         </ul>
         
     </div>
 
     <script src="js/music.js"></script>
     <script src="js/titleEffect.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var bio = document.getElementById("profileBio");
+            bio.addEventListener("animationend", function() {
+                bio.style.animation = "none";
+                bio.style.width = "auto";
+                bio.style.borderRight = "none";
+            });
+        });
+    </script>
 </body>
 </html>
